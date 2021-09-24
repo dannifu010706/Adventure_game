@@ -13,12 +13,16 @@ public final class ItemImpl implements Item {
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
 
     public boolean equals(Object other) {
 
-        return this.name == other.getClass().getName();
+        if (this.name == other.getClass().getName()) {
+            return true;
+        }
+        ;
+        return false;
     }
 
     public String toString() {

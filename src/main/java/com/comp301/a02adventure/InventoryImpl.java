@@ -3,7 +3,7 @@ package com.comp301.a02adventure;
 import java.util.ArrayList;
 import java.util.List;
 
-class InventoryImpl implements Inventory {
+public class InventoryImpl implements Inventory {
 
     private List<Item> list;
 

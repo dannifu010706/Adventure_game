@@ -26,10 +26,10 @@ public class PositionImpl implements Position {
             pos = new PositionImpl(x + 1, y);
         }
         if (direction == Direction.NORTH) {
-            pos = new PositionImpl(x, y - 1);
+            pos = new PositionImpl(x, y + 1);
         }
         if (direction == Direction.SOUTH) {
-            pos = new PositionImpl(x, y + 1);
+            pos = new PositionImpl(x, y - 1);
         }
         if (direction == Direction.WEST) {
             pos = new PositionImpl(x - 1, y);
