@@ -4,7 +4,7 @@ package com.comp301.a02adventure;
  * NOTE: Leave this class commented out until you have finished the Jedi portion of the assignment.
  * Once you've gotten 100% on Gradescope, uncomment this code to play the game!
  */
-//public class Main {
+// public class Main {
 //  public static void main(String[] args) {
 //    // EXPOSITION
 //    printTitle();
@@ -129,4 +129,4 @@ package com.comp301.a02adventure;
 //            + "                                                            \n"
 //            + "                                                           ");
 //  }
-//}
+// }
