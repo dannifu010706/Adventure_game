@@ -5,11 +5,11 @@ import java.util.List;
 
 public class InventoryImpl implements Inventory {
 
-  private List<Item> list;
+  private ArrayList<Item> list;
 
   public InventoryImpl() {
 
-    this.list = new ArrayList<>();
+    this.list = new ArrayList<Item>();
   }
 
   @Override
@@ -30,18 +30,12 @@ public class InventoryImpl implements Inventory {
 
   @Override
   public List<Item> getItems() {
-    List<Item> list2 = new ArrayList<>();
-    for (int i = 0; i < this.list.size(); i++) {
-      if (this.list.get(i) != null) {
-        list2.add(list.get(i));
-      }
-    }
-    return list2;
+    return this.list;
   }
 
   @Override
   public void addItem(Item item) {
-    list.add(item);
+    this.list.add(item);
   }
 
   @Override
@@ -56,12 +50,18 @@ public class InventoryImpl implements Inventory {
   @Override
   public void clear() {
 
-    list.clear();
+    this.list.clear();
   }
 
   @Override
   public void transferFrom(Inventory other) {
-    this.list = other.getItems();
+    ArrayList<Item> newlist = new ArrayList<Item>();
+    for (int i = 0; i < other.getItems().size(); i++) {
+      if (other.getItems().get(i) != null) {
+        newlist.add(other.getItems().get(i));
+      }
+    }
+    this.list = newlist;
     other.clear();
   }
 }
