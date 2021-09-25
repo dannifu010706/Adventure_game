@@ -17,7 +17,7 @@ public final class ItemImpl implements Item {
 
   public boolean equals(Object other) {
 
-    return this.name == other.toString();
+    return other.equals(name);
   }
 
   public String toString() {
