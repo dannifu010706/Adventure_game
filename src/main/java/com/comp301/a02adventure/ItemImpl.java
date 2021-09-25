@@ -17,10 +17,7 @@ public final class ItemImpl implements Item {
 
   public boolean equals(Object other) {
 
-    if (this.name == other.getClass().getName()) {
-      return true;
-    }
-      return false;
+    return this.name == other.toString();
   }
 
   public String toString() {
