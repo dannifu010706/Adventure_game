@@ -31,14 +31,13 @@ public class InventoryImpl implements Inventory {
 
   @Override
   public List<Item> getItems() {
-    ArrayList<Item> item = new ArrayList<>();
-    for (int i = 0; i < list.size(); i++) {
-      if (list.get(i) != null) {
-
-        item.add(list.get(i));
+    List<Item> list2 = new ArrayList<>();
+    for (int i = 0; i < this.list.size(); i++) {
+      if (this.list.get(i) != null) {
+        list2.add(list.get(i));
       }
     }
-    return item;
+    return list2;
   }
 
   @Override
