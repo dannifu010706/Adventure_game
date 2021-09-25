@@ -49,7 +49,7 @@ public class GameImpl implements Game {
       } else {
         System.out.println(
             "You collected these items: "
-                + map.getCell(player.getPosition()).getChest().getItems());
+                + map.getCell(player.getPosition()).getChest().getItems().toString());
         player.getInventory().transferFrom(map.getCell(player.getPosition()).getChest());
       }
     }
@@ -68,13 +68,13 @@ public class GameImpl implements Game {
       }
     }
     if (direction == Direction.WEST) {
-      if (player.getPosition().getX() - 1 < 0) {
-        return false;
+      if (player.getPosition().getX() - 1 >= 0) {
+        return true;
       }
     }
     if (direction == Direction.SOUTH) {
-      if (player.getPosition().getY() + 1 > map.getHeight()) {
-        return false;
+      if (player.getPosition().getY() + 1 <= map.getHeight()) {
+        return true;
       }
     }
     return false;

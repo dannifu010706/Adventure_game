@@ -10,19 +10,19 @@ public class InventoryImpl implements Inventory {
   public InventoryImpl() {
 
     List<Item> alist = new ArrayList<>();
-    list = alist;
+    this.list = alist;
   }
 
   @Override
   public boolean isEmpty() {
-    return list == null;
+    return this.list.isEmpty();
   }
 
   @Override
   public int getNumItems() {
     int count = 0;
     for (int i = 0; i < list.size(); i++) {
-      if (list.get(i) != null) {
+      if (this.list.get(i) != null) {
         count++;
       }
     }
