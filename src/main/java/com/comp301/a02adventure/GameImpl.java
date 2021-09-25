@@ -73,9 +73,7 @@ public class GameImpl implements Game {
       }
     }
     if (direction == Direction.SOUTH) {
-      if (player.getPosition().getY() + 1 <= map.getHeight()) {
-        return true;
-      }
+      return player.getPosition().getY() + 1 <= map.getHeight();
     }
     return false;
   }

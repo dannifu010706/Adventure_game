@@ -9,8 +9,7 @@ public class InventoryImpl implements Inventory {
 
   public InventoryImpl() {
 
-    List<Item> alist = new ArrayList<>();
-    this.list = alist;
+    this.list = new ArrayList<>();
   }
 
   @Override
