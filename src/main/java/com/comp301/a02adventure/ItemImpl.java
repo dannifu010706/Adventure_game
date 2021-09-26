@@ -1,5 +1,7 @@
 package com.comp301.a02adventure;
 
+import java.util.Objects;
+
 public final class ItemImpl implements Item {
   private final String name;
 
@@ -18,7 +20,7 @@ public final class ItemImpl implements Item {
   public boolean equals(Object other) {
     Object haha = name;
 
-    return other.toString().equals(haha.toString());
+    return other != null && Objects.equals(haha.toString(), other.toString());
   }
 
   public String toString() {
