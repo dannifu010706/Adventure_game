@@ -1,16 +1,15 @@
 package com.comp301.a02adventure;
 
 public class MapImpl implements Map {
-  private final int[][] array;
+  private final Cell[][] array;
   private final int numItems;
-  private Cell cell;
 
   public MapImpl(int width, int height, int numItems) {
     if (width <= 0 || height <= 0) {
       throw new IllegalArgumentException("width or weight can not be 0 or less than 0");
     }
 
-    int[][] grid = new int[width][height];
+    Cell[][] grid = new Cell[width][height];
     this.array = grid;
 
     this.numItems = numItems;
@@ -32,8 +31,7 @@ public class MapImpl implements Map {
 
       throw new IndexOutOfBoundsException("You are out of dimension!");
     }
-    cell = new CellImpl(x, y);
-    return cell;
+    return array[x][y];
   }
 
   @Override
@@ -41,13 +39,13 @@ public class MapImpl implements Map {
     if (position.getY() > array.length - 1 || position.getX() > array[0].length - 1) {
       throw new IndexOutOfBoundsException("You are out of dimension!");
     }
-    cell = new CellImpl(position.getX(), position.getY());
-    return cell;
+    return array[position.getX()][position.getY()];
   }
 
   @Override
   public void initCell(int x, int y) {
-    cell = new CellImpl(x, y);
+    Cell cell = new CellImpl(x, y);
+    array[x][y] = cell;
   }
 
   @Override
