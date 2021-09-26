@@ -72,34 +72,27 @@ public class GameImpl implements Game {
 
     if (direction == EAST) {
       if (player.getPosition().getX() < map.getWidth() - 1) {
-        if (map.getCell(player.getPosition().getX() + 1, player.getPosition().getY()).getName()
-            != null) {
-          return true;
-        }
+
+        return true;
       }
     }
+
     if (direction == Direction.NORTH) {
       if (player.getPosition().getY() < map.getHeight() - 1) {
-        if (map.getCell(player.getPosition().getX(), player.getPosition().getY() + 1).getName()
-            != null) {
-          return true;
-        }
+
+        return true;
       }
     }
     if (direction == Direction.WEST) {
       if (player.getPosition().getX() - 1 >= 0) {
-        if (map.getCell(player.getPosition().getX() - 1, player.getPosition().getY()).getName()
-            != null) {
-          return true;
-        }
+
+        return true;
       }
     }
     if (direction == Direction.SOUTH) {
       if (player.getPosition().getY() - 1 >= 0 == true) {
-        if (map.getCell(player.getPosition().getX(), player.getPosition().getY() - 1).getName()
-            != null) {
-          return true;
-        }
+
+        return true;
       }
     }
     return false;
