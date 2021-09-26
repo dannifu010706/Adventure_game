@@ -81,14 +81,12 @@ public class GameImpl implements Game {
       }
     }
     if (direction == Direction.WEST) {
-      if (player.getPosition().getX() - 1 >= 0
-          && map.getCell(player.getPosition().getX() - 1, player.getPosition().getY()) != null) {
+      if (player.getPosition().getX() - 1 >= 0) {
         return true;
       }
     }
     if (direction == Direction.SOUTH) {
-      return player.getPosition().getY() - 1 >= 0
-          && map.getCell(player.getPosition().getX(), player.getPosition().getY() - 1) != null;
+      return player.getPosition().getY() - 1 >= 0;
     }
     return false;
   }
