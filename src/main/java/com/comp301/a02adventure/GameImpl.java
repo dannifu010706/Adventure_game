@@ -68,12 +68,12 @@ public class GameImpl implements Game {
   @Override
   public boolean canMove(Direction direction) {
     if (direction == Direction.EAST) {
-      if (player.getPosition().getX() + 1 < map.getWidth()) {
+      if (player.getPosition().getX() <= map.getWidth() - 1) {
         return true;
       }
     }
     if (direction == Direction.NORTH) {
-      if (player.getPosition().getY() + 1 < map.getHeight()) {
+      if (player.getPosition().getY() <= map.getHeight() - 1) {
         return true;
       }
     }
@@ -83,9 +83,7 @@ public class GameImpl implements Game {
       }
     }
     if (direction == Direction.SOUTH) {
-      if(player.getPosition().getY() - 1 >= 0){
-        return true;
-      }
+      return player.getPosition().getY() - 1 >= 0;
     }
     return false;
   }
@@ -94,8 +92,9 @@ public class GameImpl implements Game {
   public void move(Direction direction) {
     Game game = new GameImpl(this.map, this.player);
     if (game.canMove(direction) == true) {
-      game.printCellInfo();
       player.move(direction);
+      game.printCellInfo();
+
     } else {
       System.out.println("You can't go that way! Try another direction");
     }
