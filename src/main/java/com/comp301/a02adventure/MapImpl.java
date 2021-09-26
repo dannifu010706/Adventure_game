@@ -5,9 +5,10 @@ public class MapImpl implements Map {
   private final int numItems;
 
   public MapImpl(int width, int height, int numItems) {
-    if (width == 0 || height == 0) {
+    if (width <= 0 || height <= 0) {
       throw new IllegalArgumentException("width or weight can not be null");
     }
+
     int[][] grid = new int[width][height];
     this.array = grid;
 

@@ -19,13 +19,7 @@ public class InventoryImpl implements Inventory {
 
   @Override
   public int getNumItems() {
-    int count = 0;
-    for (int i = 0; i < list.size(); i++) {
-      if (this.list.get(i) != null) {
-        count++;
-      }
-    }
-    return count;
+    return this.list.size();
   }
 
   @Override
@@ -55,13 +49,11 @@ public class InventoryImpl implements Inventory {
 
   @Override
   public void transferFrom(Inventory other) {
-    ArrayList<Item> newlist = new ArrayList<Item>();
+    ArrayList<Item> list2 = new ArrayList<Item>();
     for (int i = 0; i < other.getItems().size(); i++) {
-      if (other.getItems().get(i) != null) {
-        newlist.add(other.getItems().get(i));
-      }
+      list2.add(other.getItems().get(i));
     }
-    this.list = newlist;
+    this.list = list2;
     other.clear();
   }
 }

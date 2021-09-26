@@ -29,16 +29,23 @@ public class CellImpl implements Cell {
 
   @Override
   public void setName(String name) {
+    if (name == null) {
+      throw new IllegalArgumentException("name can not be null!");
+    }
     this.name = name;
   }
 
   @Override
   public String getDescription() {
+
     return this.description;
   }
 
   @Override
   public void setDescription(String description) {
+    if (description == null) {
+      throw new IllegalArgumentException("description can not be null!");
+    }
     this.description = description;
   }
 
@@ -54,6 +61,9 @@ public class CellImpl implements Cell {
 
   @Override
   public void setChest(Inventory chest) {
+    if (chest == null) {
+      throw new IllegalArgumentException("your input is null!");
+    }
     this.chest = chest;
     this.chest_track = true;
   }
