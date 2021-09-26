@@ -26,7 +26,7 @@ public class GameImpl implements Game {
 
   @Override
   public List<Item> getPlayerItems() {
-    return this.getPlayerItems();
+    return this.player.getInventory().getItems();
   }
 
   @Override
@@ -37,6 +37,14 @@ public class GameImpl implements Game {
   @Override
   public void printCellInfo() {
     System.out.println("Location: " + map.getCell(player.getPosition()).getName());
+    System.out.println(map.getCell(player.getPosition()).getDescription());
+    if (map.getCell(player.getPosition()).getIsVisited() == true) {
+      System.out.println("You have already visited this location.");
+    }
+    if (map.getCell(player.getPosition()).hasChest() == true) {
+      System.out.println("You found a chest! Type 'open' to see what's inside, or keep moving.");
+    }
+    map.getCell(player.getPosition()).visit();
   }
 
   @Override
@@ -46,7 +54,9 @@ public class GameImpl implements Game {
       if (map.getCell(player.getPosition()).hasChest() == true
           && map.getCell(player.getPosition()).getChest().getNumItems() == 0) {
         System.out.println("The chest is empty.");
-      } else {
+      }
+      if (map.getCell(player.getPosition()).hasChest() == true
+          && map.getCell(player.getPosition()).getChest().getNumItems() != 0) {
         System.out.println(
             "You collected these items: "
                 + map.getCell(player.getPosition()).getChest().getItems().toString());
@@ -63,7 +73,7 @@ public class GameImpl implements Game {
       }
     }
     if (direction == Direction.NORTH) {
-      if (player.getPosition().getY() - 1 >= 0) {
+      if (player.getPosition().getY() + 1 < map.getHeight()) {
         return true;
       }
     }
@@ -73,7 +83,7 @@ public class GameImpl implements Game {
       }
     }
     if (direction == Direction.SOUTH) {
-      return player.getPosition().getY() + 1 <= map.getHeight();
+      return player.getPosition().getY() - 1 >= 0;
     }
     return false;
   }
