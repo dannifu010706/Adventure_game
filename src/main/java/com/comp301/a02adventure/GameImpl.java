@@ -2,6 +2,8 @@ package com.comp301.a02adventure;
 
 import java.util.List;
 
+import static com.comp301.a02adventure.Direction.EAST;
+
 public class GameImpl implements Game {
   private final Map map;
   private final Player player;
@@ -67,25 +69,28 @@ public class GameImpl implements Game {
 
   @Override
   public boolean canMove(Direction direction) {
-    if (direction == Direction.EAST) {
-      if (player.getPosition().getX() <= map.getWidth() - 1 && player.getPosition().getX() >= 0) {
+
+    if (direction == EAST) {
+      if (player.getPosition().getX() <= map.getWidth() - 1
+          && map.getCell(player.getPosition().getX() + 1, player.getPosition().getY()) != null) {
         return true;
       }
     }
     if (direction == Direction.NORTH) {
-      if (player.getPosition().getY() <= map.getHeight() - 1 && player.getPosition().getY() >= 0) {
+      if (player.getPosition().getY() <= map.getHeight() - 1
+          && map.getCell(player.getPosition().getX(), player.getPosition().getY() + 1) != null) {
         return true;
       }
     }
     if (direction == Direction.WEST) {
-      if (player.getPosition().getX() - 1 >= 0 && player.getPosition().getX() < map.getWidth()) {
+      if (player.getPosition().getX() - 1 >= 0
+          && map.getCell(player.getPosition().getX() - 1, player.getPosition().getY()) != null) {
         return true;
       }
     }
     if (direction == Direction.SOUTH) {
-      if (player.getPosition().getY() - 1 >= 0 && player.getPosition().getY() < map.getHeight()) {
-        return true;
-      }
+      return player.getPosition().getY() - 1 >= 0
+              && map.getCell(player.getPosition().getX(), player.getPosition().getY() - 1) != null;
     }
     return false;
   }
