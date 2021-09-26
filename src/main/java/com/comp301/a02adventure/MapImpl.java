@@ -6,7 +6,7 @@ public class MapImpl implements Map {
 
   public MapImpl(int width, int height, int numItems) {
     if (width <= 0 || height <= 0) {
-      throw new IllegalArgumentException("width or weight can not be null");
+      throw new IllegalArgumentException("width or weight can not be 0 or less than 0");
     }
 
     int[][] grid = new int[width][height];
@@ -27,7 +27,7 @@ public class MapImpl implements Map {
 
   @Override
   public Cell getCell(int x, int y) {
-    if (x > array.length || y > array[0].length) {
+    if (x > array.length - 1 || y > array[0].length - 1) {
 
       throw new IllegalArgumentException("You are out of dimension!");
     }
@@ -37,7 +37,7 @@ public class MapImpl implements Map {
 
   @Override
   public Cell getCell(Position position) {
-    if (position.getY() > array.length || position.getX() > array[0].length) {
+    if (position.getY() > array.length - 1 || position.getX() > array[0].length - 1) {
       throw new IllegalArgumentException("You are out of dimension!");
     }
     Cell cell2 = new CellImpl(position.getX(), position.getY());

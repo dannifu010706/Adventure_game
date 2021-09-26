@@ -9,7 +9,7 @@ public class InventoryImpl implements Inventory {
 
   public InventoryImpl() {
 
-    this.list = new ArrayList<Item>();
+    this.list = new ArrayList<>();
   }
 
   @Override
@@ -35,7 +35,7 @@ public class InventoryImpl implements Inventory {
   @Override
   public void removeItem(Item item) {
     for (int i = 0; i < list.size(); i++) {
-      if (list.get(i) == item) {
+      if (list.get(i).getName() == item.getName()) {
         list.remove(i);
       }
     }
