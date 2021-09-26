@@ -24,7 +24,11 @@ public class InventoryImpl implements Inventory {
 
   @Override
   public List<Item> getItems() {
-    return this.list;
+    ArrayList<Item> list_copy=new ArrayList<Item>();
+    for(int i=0; i<this.list.size();i++){
+      list_copy.add(list.get(i));
+    }
+    return list_copy;
   }
 
   @Override
@@ -51,7 +55,8 @@ public class InventoryImpl implements Inventory {
   public void transferFrom(Inventory other) {
     ArrayList<Item> list2 = new ArrayList<Item>();
     for (int i = 0; i < other.getItems().size(); i++) {
-      list2.add(other.getItems().get(i));
+      if(other.getItems()!=null){
+      list2.add(other.getItems().get(i));}
     }
     this.list = list2;
     other.clear();
