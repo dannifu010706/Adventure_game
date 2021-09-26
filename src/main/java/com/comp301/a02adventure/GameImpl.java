@@ -106,7 +106,7 @@ public class GameImpl implements Game {
       game.printCellInfo();
 
     } else {
-      System.out.println("You can't go that way! Try another direction");
+      System.out.println("You can't go that way! Try another direction.");
     }
   }
 }
