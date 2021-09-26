@@ -16,7 +16,10 @@ public final class ItemImpl implements Item {
   }
 
   public boolean equals(Object other) {
-    return this.name==other.toString();
+    if (name == null) {
+      return false;
+    }
+    return this.name == other.toString();
   }
 
   public String toString() {
