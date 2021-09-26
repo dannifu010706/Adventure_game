@@ -53,6 +53,9 @@ public class InventoryImpl implements Inventory {
 
   @Override
   public void transferFrom(Inventory other) {
+    if (other.isEmpty()) {
+      throw new IllegalArgumentException("The Object is empty!");
+    }
     ArrayList<Item> list2 = new ArrayList<Item>();
     for (int i = 0; i < other.getItems().size(); i++) {
       if (other.getItems() != null) {
