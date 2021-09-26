@@ -3,7 +3,7 @@ package com.comp301.a02adventure;
 public class PlayerImpl implements Player {
   private final String name;
   private Position player_position;
-  private Inventory inventory;
+  private Inventory inventory = new InventoryImpl();
 
   public PlayerImpl(String name, int startX, int startY) {
     if (name == null) {
@@ -37,7 +37,7 @@ public class PlayerImpl implements Player {
     if (direction == Direction.NORTH) {
       this.player_position = this.player_position.getNeighbor(Direction.NORTH);
     }
-    if (direction == Direction.WEST) {
+    if (direction == Direction.SOUTH) {
       this.player_position = this.player_position.getNeighbor(Direction.SOUTH);
     }
     if (direction == Direction.WEST) {

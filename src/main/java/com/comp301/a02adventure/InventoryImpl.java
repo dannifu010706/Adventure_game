@@ -57,7 +57,7 @@ public class InventoryImpl implements Inventory {
     for (int i = 0; i < other.getItems().size(); i++) {
       if (other.getItems() != null) {
         this.list.add(other.getItems().get(i));
-        other.getItems().remove(i);
+        other.removeItem(other.getItems().get(i));
       }
     }
   }
