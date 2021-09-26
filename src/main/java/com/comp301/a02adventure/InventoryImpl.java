@@ -53,12 +53,13 @@ public class InventoryImpl implements Inventory {
 
   @Override
   public void transferFrom(Inventory other) {
-
+    ArrayList<Item> list2 = new ArrayList<Item>();
     for (int i = 0; i < other.getItems().size(); i++) {
       if (other.getItems() != null) {
-        this.list.add(other.getItems().get(i));
-        other.removeItem(other.getItems().get(i));
+        list2.add(other.getItems().get(i));
       }
     }
+    this.list = list2;
+    other.getItems().clear();
   }
 }

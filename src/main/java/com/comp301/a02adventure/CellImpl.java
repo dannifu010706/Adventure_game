@@ -1,7 +1,7 @@
 package com.comp301.a02adventure;
 
 public class CellImpl implements Cell {
-  private Position position;
+  private final Position position;
   private Inventory chest;
   private String name;
   private String description;
