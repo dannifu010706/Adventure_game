@@ -29,7 +29,7 @@ public class MapImpl implements Map {
   public Cell getCell(int x, int y) {
     if (x > array.length - 1 || y > array[0].length - 1) {
 
-      throw new IllegalArgumentException("You are out of dimension!");
+      throw new IndexOutOfBoundsException("You are out of dimension!");
     }
     Cell cell1 = new CellImpl(x, y);
     return cell1;
@@ -38,7 +38,7 @@ public class MapImpl implements Map {
   @Override
   public Cell getCell(Position position) {
     if (position.getY() > array.length - 1 || position.getX() > array[0].length - 1) {
-      throw new IllegalArgumentException("You are out of dimension!");
+      throw new IndexOutOfBoundsException("You are out of dimension!");
     }
     Cell cell2 = new CellImpl(position.getX(), position.getY());
     return cell2;

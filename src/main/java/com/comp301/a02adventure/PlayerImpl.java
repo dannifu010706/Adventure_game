@@ -2,8 +2,8 @@ package com.comp301.a02adventure;
 
 public class PlayerImpl implements Player {
   private final String name;
-  private Position player_position;
   private final Inventory inventory = new InventoryImpl();
+  private Position player_position;
 
   public PlayerImpl(String name, int startX, int startY) {
     if (name == null) {
