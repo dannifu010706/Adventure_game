@@ -31,7 +31,7 @@ public class GameImpl implements Game {
 
   @Override
   public boolean getIsWinner() {
-    return map.getNumItems() == getPlayerItems().size();
+    return map.getNumItems() == player.getInventory().getNumItems();
   }
 
   @Override
@@ -59,7 +59,7 @@ public class GameImpl implements Game {
           && map.getCell(player.getPosition()).getChest().getNumItems() != 0) {
         System.out.println(
             "You collected these items: "
-                + map.getCell(player.getPosition()).getChest().getItems().toString());
+                + map.getCell(player.getPosition()).getChest().getItems());
         player.getInventory().transferFrom(map.getCell(player.getPosition()).getChest());
       }
     }
@@ -83,7 +83,9 @@ public class GameImpl implements Game {
       }
     }
     if (direction == Direction.SOUTH) {
-      return player.getPosition().getY() - 1 >= 0;
+      if(player.getPosition().getY() - 1 >= 0){
+        return true;
+      }
     }
     return false;
   }
