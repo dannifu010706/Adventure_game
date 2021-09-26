@@ -1,8 +1,8 @@
 package com.comp301.a02adventure;
 
 public class CellImpl implements Cell {
-  private Position position = new PositionImpl(0, 0);
-  private Inventory chest = new InventoryImpl();
+  private Position position;
+  private Inventory chest;
   private String name;
   private String description;
   private boolean track = false;
@@ -19,6 +19,7 @@ public class CellImpl implements Cell {
   }
 
   public CellImpl(int x, int y) {
+
     this(x, y, "", "");
   }
 
