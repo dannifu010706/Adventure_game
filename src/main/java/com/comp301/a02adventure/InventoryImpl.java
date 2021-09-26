@@ -60,6 +60,6 @@ public class InventoryImpl implements Inventory {
       }
     }
     this.list = list2;
-    other.clear();
+    other.getItems().clear();
   }
 }
