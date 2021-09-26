@@ -36,7 +36,7 @@ public class MapImpl implements Map {
 
   @Override
   public Cell getCell(Position position) {
-    if (position.getY() > array.length - 1 || position.getX() > array[0].length - 1) {
+    if (position.getY() > array[0].length - 1 || position.getX() > array.length - 1) {
       throw new IndexOutOfBoundsException("You are out of dimension!");
     }
     return array[position.getX()][position.getY()];
