@@ -3,6 +3,7 @@ package com.comp301.a02adventure;
 public class MapImpl implements Map {
   private final int[][] array;
   private final int numItems;
+  private Cell cell;
 
   public MapImpl(int width, int height, int numItems) {
     if (width <= 0 || height <= 0) {
@@ -31,8 +32,8 @@ public class MapImpl implements Map {
 
       throw new IndexOutOfBoundsException("You are out of dimension!");
     }
-    Cell cell1 = new CellImpl(x, y);
-    return cell1;
+    cell = new CellImpl(x, y);
+    return cell;
   }
 
   @Override
@@ -40,13 +41,13 @@ public class MapImpl implements Map {
     if (position.getY() > array.length - 1 || position.getX() > array[0].length - 1) {
       throw new IndexOutOfBoundsException("You are out of dimension!");
     }
-    Cell cell2 = new CellImpl(position.getX(), position.getY());
-    return cell2;
+    cell = new CellImpl(position.getX(), position.getY());
+    return cell;
   }
 
   @Override
   public void initCell(int x, int y) {
-    Cell cell3 = new CellImpl(x, y);
+    cell = new CellImpl(x, y);
   }
 
   @Override
