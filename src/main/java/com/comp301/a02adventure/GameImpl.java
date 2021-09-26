@@ -71,14 +71,12 @@ public class GameImpl implements Game {
   public boolean canMove(Direction direction) {
 
     if (direction == EAST) {
-      if (player.getPosition().getX() <= map.getWidth() - 1
-          && map.getCell(player.getPosition().getX() + 1, player.getPosition().getY()) != null) {
+      if (player.getPosition().getX() < map.getWidth() - 1) {
         return true;
       }
     }
     if (direction == Direction.NORTH) {
-      if (player.getPosition().getY() <= map.getHeight() - 1
-          && map.getCell(player.getPosition().getX(), player.getPosition().getY() + 1) != null) {
+      if (player.getPosition().getY() < map.getHeight() - 1) {
         return true;
       }
     }
@@ -90,7 +88,7 @@ public class GameImpl implements Game {
     }
     if (direction == Direction.SOUTH) {
       return player.getPosition().getY() - 1 >= 0
-              && map.getCell(player.getPosition().getX(), player.getPosition().getY() - 1) != null;
+          && map.getCell(player.getPosition().getX(), player.getPosition().getY() - 1) != null;
     }
     return false;
   }
