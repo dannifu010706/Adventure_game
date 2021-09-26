@@ -53,18 +53,18 @@ public class GameImpl implements Game {
   public void openChest() {
     if (map.getCell(player.getPosition()).hasChest() == false) {
       System.out.println("No chest to open, sorry!");
-      if (map.getCell(player.getPosition()).hasChest() == true
-          && map.getCell(player.getPosition()).getChest().getNumItems() == 0) {
-        System.out.println("The chest is empty.");
-      }
-      if (map.getCell(player.getPosition()).hasChest() == true
-          && map.getCell(player.getPosition()).getChest().getNumItems() != 0) {
-        System.out.println(
-            "You collected these items: "
-                + map.getCell(player.getPosition()).getChest().getItems());
-        player.getInventory().transferFrom(map.getCell(player.getPosition()).getChest());
-      }
     }
+    if (map.getCell(player.getPosition()).hasChest() == true
+        && map.getCell(player.getPosition()).getChest().getNumItems() == 0) {
+      System.out.println("The chest is empty.");
+    }
+    if (map.getCell(player.getPosition()).hasChest() == true
+        && map.getCell(player.getPosition()).getChest().getNumItems() != 0) {
+      System.out.println(
+          "You collected these items: " + map.getCell(player.getPosition()).getChest().getItems());
+    }
+
+    player.getInventory().transferFrom(map.getCell(player.getPosition()).getChest());
   }
 
   @Override
